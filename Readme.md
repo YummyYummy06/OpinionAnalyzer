@@ -72,13 +72,13 @@ Edición
   (length (split-words str)))
 ```
 
-````unique-words
+```unique-words
 (defun unique-words (list-of-strings)
 "Retorna una lista con todas las palabras únicas de LIST-OF-STRINGS."
 (remove-duplicates
 (mapcan #'split-words list-of-strings)
 :test #'string-equal))
-´´´
+```
 
 ```word-frequency
 (defun word-frequency (str)
@@ -89,15 +89,11 @@ Edición
       (let ((lower (string-downcase word)))
         (incf (gethash lower freq 0))))
     freq))
-````
+```
 
 ```print-hash-table
 (defun print-hash-table (ht)
   (maphash (lambda (k v)
              (format t " ~a => ~a~%" k v))
            ht))
-```
-
-```
-
 ```

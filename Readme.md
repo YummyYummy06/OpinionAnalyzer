@@ -9,10 +9,13 @@
 ## 📋 Tabla de Contenidos
 
 1. [Introducción a Portacle](#uso-de-portacle)
-2. [Interfaz y Controles](#controles-de-interfaz)
-3. [Funciones Implementadas](#funciones-implementadas)
-4. [Ejemplos de Uso](#ejemplos-de-uso)
-5. [Pruebas](#ejecutar-pruebas)
+
+- [Interfaz y Controles](#controles-de-interfaz)
+- [Funciones Implementadas](#funciones-implementadas)
+- [Ejemplos de Uso](#ejemplos-de-uso)
+- [Pruebas](#ejecutar-pruebas)
+
+2. [Postgres y Docker](#postgres-y-docker)
 
 ---
 
@@ -397,7 +400,7 @@ Función principal que lee el archivo y se los pasa a los trabajadores
 
 ### Preparación
 
-1. **Abrir el archivo** `text_processing.lisp` en Portacle
+1. **Abrir el archivo** `ejercicios.lisp` en Portacle
 2. **Compilar y cargar** el archivo completo: `Ctrl+c` `Ctrl+k`
 3. Esperar mensaje de confirmación en el REPL
 
@@ -479,6 +482,46 @@ opinion-analyzer/
 
 - Presionar `Ctrl+g` para cancelar operación actual
 - O reiniciar REPL: `Ctrl+c` `Ctrl+z`
+
+---
+
+## Postgres y Docker
+
+### Docker
+
+- Creamos el contenedor
+
+```
+docker run --name postgresDB -p 5432:5432 -d postgres
+```
+
+- Para interactuar con la BD
+
+```
+docker exec -it postgresDB psql -U postgres
+```
+
+### Postgres
+
+- Algunos comandos para trabajar con Postgres
+
+| Acción                             | Comando                   |
+| ---------------------------------- | ------------------------- |
+| Conectarse a una base de datos     | `psql -U usuario -d base` |
+| Listar bases de datos              | `\l`                      |
+| Conectarse a otra base de datos    | `\c nombre_base`          |
+| Listar tablas                      | `\dt`                     |
+| Describir una tabla                | `\d nombre_tabla`         |
+| Listar esquemas                    | `\dn`                     |
+| Listar usuarios/roles              | `\du`                     |
+| Ejecutar archivo SQL               | `\i ruta/archivo.sql`     |
+| Ver historial de comandos          | `\s`                      |
+| Activar salida expandida           | `\x`                      |
+| Ver tiempo de ejecución de queries | `\timing`                 |
+| Salir de psql                      | `\q`                      |
+| Limpiar pantalla                   | `\! clear`                |
+| Ver configuración de conexión      | `\conninfo`               |
+| Editar query en editor externo     | `\e`                      |
 
 ---
 
